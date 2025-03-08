@@ -1,0 +1,78 @@
+/* Reset styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+/* Backdrop effect */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    visibility: hidden;
+    transition: background 0.5s ease, visibility 0.5s ease;
+}
+
+h2{
+    order: 1;
+}
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+/* Menu button */
+.menu-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+/* Sidebar Menu */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 200px;
+    height: 100%;
+    background: #222;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+}
+
+.menu a {
+    text-decoration: none;
+    color: yellow;
+    padding: 15px;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.menu a:hover {
+    background: #555;
+}
+
+/* Active states */
+body.menu-active .menu {
+    left: 0;
+}
+
+body.menu-active .backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    visibility: visible;
+}
+
