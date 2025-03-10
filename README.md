@@ -1,7 +1,7 @@
 # Weather-App
 
 #Project Overview  
-* OpenWeather API → The source of real-time weathe # Project Overview
+* OpenWeather API → The source of real-time weather.
 The Weather App is a simple web application that allows users to get real-time weather updates by entering a city name. 
 It fetches weather data from the *OpenWeather API* and displays information such as temperature, humidity, and weather conditions.  
 
