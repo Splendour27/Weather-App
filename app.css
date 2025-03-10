@@ -1,4 +1,3 @@
-/* Reset styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,7 +5,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Backdrop effect */
+
 .backdrop {
     position: fixed;
     top: 0;
@@ -21,7 +20,7 @@ body {
 h2{
     order: 1;
 }
-/* Navbar */
+
 .navbar {
     display: flex;
     align-items: center;
@@ -30,7 +29,7 @@ h2{
     color: white;
 }
 
-/* Menu button */
+
 .menu-btn {
     cursor: pointer;
     background: none;
@@ -40,7 +39,7 @@ h2{
     padding: 5px 10px;
 }
 
-/* Sidebar Menu */
+
 .menu {
     position: fixed;
     top: 0;
@@ -66,7 +65,7 @@ h2{
     background: #555;
 }
 
-/* Active states */
+
 body.menu-active .menu {
     left: 0;
 }
