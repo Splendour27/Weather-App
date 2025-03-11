@@ -43,7 +43,7 @@ h2{
 .menu {
     position: fixed;
     top: 0;
-    left: -250px; /* Initially hidden */
+    left: -250px; 
     width: 200px;
     height: 100%;
     background: #222;
