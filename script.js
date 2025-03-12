@@ -32,3 +32,7 @@ async function fetchWeather(city) {
             <p> Humidity: ${data.main.humidity}%</p>
             <p> Condition: ${data.weather[0].description}</p>
         `;}
+
+
+
+
