@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Weather App</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f4f4; text-align: center;">
+
+<div style="max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <h1 style="color: #333;">Weather App - About Us</h1>
+    <p style="font-size: 16px; line-height: 1.5;">Welcome to the Weather App! This project helps users get real-time weather updates for any city worldwide.</p>
+
+    <h2 style="color: #444;">Project Overview</h2>
+    <ul style="text-align: left;">
+        <li><strong>Navigation Bar:</strong> Displays the app name and serves as a header.</li>
+        <li><strong>Search Section:</strong> Users enter a city name to retrieve weather information.</li>
+        <li><strong>Weather Display:</strong> Shows temperature, conditions, humidity, and wind speed.</li>
+        <li><strong>Dynamic Background:</strong> Changes based on weather conditions.</li>
+    </ul>
+
+    <h2 style="color: #444;">Functionalities & Features</h2>
+
+    <h3 style="color: #555;">1. Fetching Weather Data</h3>
+    <p>The app uses the OpenWeatherMap API to retrieve real-time weather data based on user input.</p>
+    <pre style="background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; text-align: left;">
+async function getWeather(city) { 
+    try {
+        const apiKey = "YOUR_API_KEY";
+        const weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
+        const response = await fetch(${weatherApiUrl}${city}&appid=${apiKey}&units=metric);
+        const data = await response.json(); 
+        
+        if (data.cod === 200) {
+            updateWeatherUI(data);
+        } else {
+            alert("City not found! Please enter a valid city name.");
+        }
+    } catch (error) {
+        console.error("Error fetching weather data:", error);
+    }
+}
+    </pre>
+
+    <h3 style="color: #555;">2. User Input Handling</h3>
+    <p>Users can type a city name and click the search button to fetch weather data.</p>
+    <pre style="background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; text-align: left;">
+function searchWeather() { 
+    const city = document.getElementById("cityInput").value.trim(); 
+    if (city) { 
+        getWeather(city); 
+    } else { 
+        alert("Please enter a city name."); 
+    }
+}
+    </pre>
+
+    <h3 style="color: #555;">3. Updating the UI Dynamically</h3>
+    <p>Once weather data is retrieved, the app updates details such as temperature, description, wind speed, and humidity.</p>
+    <pre style="background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; text-align: left;">
+function updateWeatherUI(data) {
+    document.getElementById("weather-title").innerText = ${data.name}, ${data.sys.country};
+    document.getElementById("temperature").innerText = Temperature: ${data.main.temp}°C;
+    document.getElementById("weather-desc").innerText = ${data.weather[0].description};
+    document.getElementById("wind-speed").innerText = Wind Speed: ${data.wind.speed} m/s;
+    document.getElementById("humidity").innerText = Humidity: ${data.main.humidity}%;
+    
+    updateBackground(data.weather[0].main);
+}
+    </pre>
+
+    <h3 style="color: #555;">4. Dynamic Background Change</h3>
+    <p>The background changes dynamically based on the current weather condition (e.g., clear, rain, thunderstorm).</p>
+    <pre style="background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; text-align: left;">
+function updateBackground(weatherCondition) { 
+    let bgImage = "default.jpg";
+    switch (weatherCondition.toLowerCase()) {
+        case "clear": bgImage = "clear.jpg"; break;
+        case "rain": bgImage = "rain.jpg"; break;
+        case "snow": bgImage = "snow.jpg"; break;
+        case "thunderstorm": bgImage = "storm.jpg"; break;
+        case "clouds": bgImage = "cloudy.jpg"; break;
+    }
+    document.body.style.backgroundImage = url('images/${bgImage}');
+}
+    </pre>
+
+    <h3 style="color: #555;">5. Mobile Responsiveness</h3>
+    <p>The app is fully responsive and adapts to different screen sizes using inline styles.</p>
+
+    <h2 style="color: #444;">Contact Us</h2>
+    <p>If you have any questions, reach out to us at <strong>support@weatherapp.com</strong></p>
+
+    <button onclick="window.location.href='index.html'" 
+            style="background-color: #007BFF; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+        Back to Home
+    </button>
+</div>
+
+<footer  style="position: relative;
+bottom: 0; width: 80%;max-width: 800px;margin: 0 auto;border-radius: 8px;
+background-color: #333;
+color: white;
+text-align: center;
+padding: 15px;
+">
+    &copy; 2025 Developed by Kelechi, Fedora, Alex, Ebube, Nonye, Uche, and Splendour </footer>
+    
+
+</body>
+</html>
